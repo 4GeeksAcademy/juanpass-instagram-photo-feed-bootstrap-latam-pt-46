@@ -1,92 +1,280 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Instagram 4 Geeks con Bootstrap</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/0d52037676.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instagram 4 Geeks con Bootstrap</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/0d52037676.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
-    <nav class="navbar navbar-light bg-white border-bottom shadow-sm p-3">
-        <div class="container-fluid">
-            <a class="navbar-brand fs-4" href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
-            <div class="d-flex align-items-center">
-                <button class="btn btn-success me-3">Crear nuevo post</button>
-                <div class="dropdown">
-                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-solid fa-gear"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">Configuración</a></li>
-                        <li><a class="dropdown-item" href="#">Perfil</a></li>
-                        <li><a class="dropdown-item" href="#">Salir</a></li>
-                    </ul>
-                </div>
-            </div>
+  <!-- Cabecera CSS -->
+  <nav class="navbar navbar-light bg-white border-bottom shadow-sm p-3">
+    <div class="container-fluid">
+      <a class="navbar-brand fs-4" href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+      <div class="d-flex align-items-center">
+        <button class="btn btn-success me-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear nuevo post</button>
+        <div class="dropdown">
+          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-gear"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Configuración</a></li>
+            <li><a class="dropdown-item" href="#">Perfil</a></li>
+            <li><a class="dropdown-item" href="#">Salir</a></li>
+          </ul>
         </div>
-    </nav>
- <div class="container mt-3 text-center">
-    <div class="btn-group" role="group" data-bs-toggle="buttons">
-        <input type="radio" class="btn-check" name="opcion-vista" id="grid" checked>
-        <label class="btn btn-outline-primary" for="grid"><i class="fa-solid fa-table-cells"></i></label>
-
-        <input type="radio" class="btn-check" name="opcion-vista" id="cuadrito">
-        <label class="btn btn-outline-primary" for="cuadrito"><i class="fa-solid fa-square"></i></label>
+      </div>
     </div>
-</div>
-    <div class="container mt-4">
+  </nav>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crear un nuevo post</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="fw-bold">Texto en negrita.</p>
+          <div class="input-group">
+            <textarea class="form-control" placeholder="Agrega el pie de foto de tu post aquí" aria-label="textarea"></textarea>
+          </div>
+          <div class="mt-3">
+            <button type="button" class="btn btn-light"><i class="fa-solid fa-camera"></i></button>
+            <button type="button" class="btn btn-light"><i class="fa-solid fa-location-pin"></i></button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-success">Publicar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botones grid y cuadro -->
+  <nav>
+    <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+      <button class="nav-link active" id="nav-grid-tab" data-bs-toggle="tab" data-bs-target="#nav-grid" type="button" role="tab" aria-controls="nav-grid" aria-selected="true">
+        <i class="fa-solid fa-table-cells"></i>
+      </button>
+      <button class="nav-link" id="nav-cuadro-tab" data-bs-toggle="tab" data-bs-target="#nav-cuadro" type="button" role="tab" aria-controls="nav-cuadro" aria-selected="false">
+        <i class="fa-solid fa-square"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Contenedor de Tabs -->
+  <div class="tab-content" id="nav-tabContent">
+    <!-- Grid -->
+    <div class="tab-pane fade show active" id="nav-grid" role="tabpanel" aria-labelledby="nav-grid-tab">
+      <div class="container mt-4">
         <div class="row g-3">
-            <div class="col-12 col-md-4">
-                <div class="img-card">
-                    <img src="https://picsum.photos/400/400?random=1" alt="Dog">
-                </div>
+          <!-- 9 imágenes en formato grid -->
+          <div class="col-12 col-md-4">
+            <div class="img-card">
+              <img src="https://picsum.photos/400/400?random=1" alt="Dog" class="img-fluid">
             </div>
-            <div class="col-12 col-md-4">
-                <div class="img-card">
-                    <img src="https://picsum.photos/400/400?random=2" alt="People">
-                </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="img-card">
+              <img src="https://picsum.photos/400/400?random=2" alt="People" class="img-fluid">
             </div>
-            <div class="col-12 col-md-4">
-                <div class="img-card">
-                    <img src="https://picsum.photos/400/400?random=3" alt="City">
-                </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="img-card">
+              <img src="https://picsum.photos/400/400?random=3" alt="City" class="img-fluid">
             </div>
-            <div class="col-12 col-md-4">
-                <div class="img-card">
-                    <img src="https://picsum.photos/400/400?random=4" alt="Smile">
-                </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="img-card">
+              <img src="https://picsum.photos/400/400?random=4" alt="Smile" class="img-fluid">
             </div>
-            <div class="col-12 col-md-4">
-                <div class="img-card">
-                    <img src="https://picsum.photos/400/400?random=5" alt="Eiffel Tower">
-                </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="img-card">
+              <img src="https://picsum.photos/400/400?random=5" alt="Eiffel Tower" class="img-fluid">
             </div>
-            <div class="col-12 col-md-4">
-                <div class="img-card">
-                    <img src="https://picsum.photos/400/400?random=6" alt="Football Match">
-                </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="img-card">
+              <img src="https://picsum.photos/400/400?random=6" alt="Football Match" class="img-fluid">
             </div>
-            <div class="col-12 col-md-4">
-                <div class="img-card">
-                    <img src="https://picsum.photos/400/400?random=7" alt="Family">
-                </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="img-card">
+              <img src="https://picsum.photos/400/400?random=7" alt="Family" class="img-fluid">
             </div>
-            <div class="col-12 col-md-4">
-                <div class="img-card">
-                    <img src="https://picsum.photos/400/400?random=8" alt="Coding">
-                </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="img-card">
+              <img src="https://picsum.photos/400/400?random=8" alt="Coding" class="img-fluid">
             </div>
-            <div class="col-12 col-md-4">
-                <div class="img-card">
-                    <img src="https://picsum.photos/400/400?random=9" alt="Students">
-                </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="img-card">
+              <img src="https://picsum.photos/400/400?random=9" alt="Students" class="img-fluid">
             </div>
+          </div>
         </div>
+      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Cuadro -->
+    <div class="tab-pane fade" id="nav-cuadro" role="tabpanel" aria-labelledby="nav-cuadro-tab">
+      <div class="container d-flex flex-column align-items-center mt-4">
+
+        <div class="card mb-4" style="max-width: 500px;">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <span class="card-title fs-4 ">Belleza Natural</span>
+              <span class="card-date text-muted fs-4">12/14</span>
+            </div>
+            <img src="https://picsum.photos/600/400?random=10" alt="Nature" class="card-img-top w-100">
+            <p class="card-text mt-3 mb-0 fs-5">
+                <strong>456789 likes</strong>
+              </p>
+            <p class="card-text mt-0 mb-0 fs-6">
+              Una vista impresionante de la naturaleza. <strong>#Fotografía</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 500px;">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <span class="card-title fs-4">Resplandor del Atardecer</span>
+              <span class="card-date text-muted fs-4">12/15</span>
+            </div>
+            <img src="https://picsum.photos/600/400?random=11" alt="Sunset" class="card-img-top w-100">
+            <p class="card-text mt-3 mb-0 fs-5">
+                <strong>3m likes</strong>
+              </p>
+            <p class="card-text mt-0 mb-0 fs-6">
+              El cielo pintado con cálidos tonos naranjas y rojos. <strong>#GoldenHour</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 500px;">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <span class="card-title fs-4">Olas del Océano</span>
+              <span class="card-date text-muted fs-4">12/16</span>
+            </div>
+            <img src="https://picsum.photos/600/400?random=12" alt="Ocean" class="card-img-top w-100">
+            <p class="card-text mt-3 mb-0 fs-5">
+                <strong>12 likes</strong>
+              </p>
+            <p class="card-text mt-0 mb-0 fs-6">
+              El relajante sonido de las olas rompiendo en la orilla. <strong>#VidaPlaya</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 500px;">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <span class="card-title fs-4">Maravilla Arquitectónica</span>
+              <span class="card-date text-muted fs-4">12/17</span>
+            </div>
+            <img src="https://picsum.photos/600/400?random=13" alt="Architecture" class="card-img-top w-100">
+            <p class="card-text mt-3 mb-0 fs-5">
+                <strong>9876 likes</strong>
+              </p>
+            <p class="card-text mt-0 mb-0 fs-6">
+              Una obra maestra de la arquitectura moderna. <strong>#Diseño</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 500px;">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <span class="card-title fs-4">Arte Urbano</span>
+              <span class="card-date text-muted fs-4">12/18</span>
+            </div>
+            <img src="https://picsum.photos/600/400?random=14" alt="Street Art" class="card-img-top w-100">
+            <p class="card-text mt-3 mb-0 fs-5">
+                <strong>689 likes</strong>
+              </p>
+            <p class="card-text mt-0 mb-0 fs-6">
+              Las paredes de la ciudad hablan con colores vibrantes. <strong>#AmanteDelArte</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 500px;">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <span class="card-title fs-4">Acción Deportiva</span>
+              <span class="card-date text-muted fs-4">12/19</span>
+            </div>
+            <img src="https://picsum.photos/600/400?random=15" alt="Sports" class="card-img-top w-100">
+            <p class="card-text mt-3 mb-0 fs-5">
+                <strong>15 likes</strong>
+              </p>
+            <p class="card-text mt-0 mb-0 fs-6">
+              La emoción del juego capturada en movimiento. <strong>#FotografíaDeportiva</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 500px;">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <span class="card-title fs-4">Vida Salvaje</span>
+              <span class="card-date text-muted fs-4">12/20</span>
+            </div>
+            <img src="https://picsum.photos/600/400?random=16" alt="Animals" class="card-img-top w-100">
+            <p class="card-text mt-3 mb-0 fs-5">
+                <strong>532 likes</strong>
+              </p>
+            <p class="card-text mt-0 fs-6">
+              Un instante en la naturaleza, congelado en el tiempo. <strong>#FotografíaSalvaje</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 500px;">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <span class="card-title fs-4">Música en Vivo</span>
+              <span class="card-date text-muted fs-4">12/21</span>
+            </div>
+            <img src="https://picsum.photos/600/400?random=17" alt="Music" class="card-img-top w-100">
+            <p class="card-text mt-3 mb-0 fs-5">
+                <strong>12345 likes</strong>
+              </p>
+            <p class="card-text mt-0 mb-0 fs-6">
+              La energía de un concierto en directo. <strong>#AmanteDeLaMúsica</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 500px;">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <span class="card-title fs-4">Mundo Tecnológico</span>
+                <span class="card-date text-muted fs-4">12/22</span>
+              </div>
+              <img src="https://picsum.photos/600/400?random=18" alt="Technology" class="card-img-top w-100">
+              <p class="card-text mt-3 mb-0 fs-5">
+                <strong>80m likes</strong>
+              </p>
+              <p class="card-text mt-0 mb-0 fs-6">
+                Explorando lo último en tecnología. <strong>#GeekTecnológico</strong>
+              </p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
